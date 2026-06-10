@@ -38,12 +38,28 @@ function joinRoom() {
             username + " joined room " + roomCode + "!";
 
         document.getElementById("roomInfo").innerHTML =
-           "<h2>Match Found</h2>" +
-"<h3>Challenge:</h3>" +
-"<p>Write a function that returns the sum of two numbers.</p>" +
-"<pre>Example: add(2, 3) → 5</pre>";
+    "<h2>Match Found</h2>" +
+    "<h3>Challenge:</h3>" +
+    "<p>Write a function that returns the sum of two numbers.</p>" +
+    "<pre>Example: add(2, 3) → 5</pre>" +
+    "<textarea id='solutionBox' placeholder='Write your solution here...'></textarea>" +
+    "<br>" +
+    "<button onclick='submitSolution()'>Submit Solution</button>" +
+    "<p id='solutionMessage'></p>";
     } else {
         document.getElementById("roomMessage").innerText =
             "Room does not exist.";
     }
+    function submitSolution() {
+    const solution = document.getElementById("solutionBox").value;
+
+    if (solution === "") {
+        document.getElementById("solutionMessage").innerText =
+            "Please write a solution first.";
+        return;
+    }
+
+    document.getElementById("solutionMessage").innerText =
+        "Solution submitted! Checking answer...";
+}
 }
