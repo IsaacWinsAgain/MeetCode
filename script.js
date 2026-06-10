@@ -38,7 +38,10 @@ function joinRoom() {
             username + " joined room " + roomCode + "!";
 
         document.getElementById("roomInfo").innerHTML =
-            "<h2>Match Found</h2><p>Waiting for coding challenge...</p>";
+           "<h2>Match Found</h2>" +
+"<h3>Challenge:</h3>" +
+"<p>Write a function that returns the sum of two numbers.</p>" +
+"<pre>Example: add(2, 3) → 5</pre>";
     } else {
         document.getElementById("roomMessage").innerText =
             "Room does not exist.";

@@ -1,31 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MeetCode</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>MeetCode</h1>
-    <p>Challenge another programmer to a live coding battle.</p>
+    <nav class="navbar">
+        <h2>MeetCode</h2>
+        <div>
+            <a href="#">Battles</a>
+            <a href="#">Problems</a>
+            <a href="#">Leaderboard</a>
+        </div>
+    </nav>
 
-    <input id="username" type="text" placeholder="Enter username">
+    <main class="dashboard">
 
-    <br><br>
+        <section class="left-panel">
+            <h1>Live Coding Battles</h1>
+            <p>Challenge another programmer, solve problems under pressure, and improve your interview skills.</p>
 
-    <input id="roomCode" type="text" placeholder="Enter room code">
+            <input id="username" type="text" placeholder="Enter username">
+            <input id="roomCode" type="text" placeholder="Enter room code">
 
-    <br><br>
+            <div>
+                <button onclick="createRoom()">Create Room</button>
+                <button onclick="joinRoom()">Join Room</button>
+            </div>
 
-    <button onclick="createRoom()">Create Room</button>
-    <button onclick="joinRoom()">Join Room</button>
+            <h3 id="roomMessage"></h3>
+            <div id="roomInfo"></div>
+        </section>
 
-    <br><br>
+        <section class="right-panel">
+            <div class="card">
+                <h3>Current Mode</h3>
+                <p>1v1 Coding Duel</p>
+            </div>
 
-    <h3 id="roomMessage"></h3>
-    <div id="roomInfo"></div>
+            <div class="card">
+                <h3>Today’s Challenge</h3>
+                <p>Two Sum</p>
+                <span>Easy</span>
+            </div>
+
+            <div class="card">
+                <h3>Coming Soon</h3>
+                <p>Leaderboard, profiles, ratings, and real-time matches.</p>
+            </div>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
-
 </body>
 </html>
