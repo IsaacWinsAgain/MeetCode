@@ -1,3 +1,5 @@
+let rooms = [];
+
 function createRoom() {
     const username = document.getElementById("username").value;
 
@@ -8,8 +10,13 @@ function createRoom() {
 
     const roomCode = Math.floor(100000 + Math.random() * 900000);
 
+    rooms.push(roomCode);
+
     document.getElementById("roomMessage").innerText =
-        username + " created room: " + roomCode;
+        username + " created a room!";
+
+    document.getElementById("roomInfo").innerHTML =
+        "<h2>Room Code: " + roomCode + "</h2>";
 }
 
 function joinRoom() {
@@ -26,6 +33,14 @@ function joinRoom() {
         return;
     }
 
-    document.getElementById("roomMessage").innerText =
-        username + " joined room: " + roomCode;
+    if (rooms.includes(Number(roomCode))) {
+        document.getElementById("roomMessage").innerText =
+            username + " joined room " + roomCode + "!";
+
+        document.getElementById("roomInfo").innerHTML =
+            "<h2>Match Found</h2><p>Waiting for coding challenge...</p>";
+    } else {
+        document.getElementById("roomMessage").innerText =
+            "Room does not exist.";
+    }
 }
