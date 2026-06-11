@@ -1,125 +1,418 @@
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #121212;
-    color: #f5f5f5;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #172554
+    );
+
+    color: white;
+
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ================= BACKGROUND GLOW ================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(96,165,250,0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(194,109,61,0.15),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(96,165,250,0.12),
+            transparent 35%
+        );
+
+    z-index: -1;
+}
+
+/* ================= NAVBAR ================= */
+
 .navbar {
-    height: 64px;
-    background: #1f1f1f;
-    border-bottom: 1px solid #333;
+    height: 70px;
+
+    background: rgba(15,23,42,.75);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #334155;
+
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 32px;
+    align-items: center;
+
+    padding: 0 40px;
 }
 
 .navbar h2 {
-    color: #ffa116;
-}
-
-.navbar a {
-    color: #d4d4d4;
-    text-decoration: none;
-    margin-left: 24px;
+    color: #60a5fa;
+    font-size: 28px;
     font-weight: bold;
 }
 
-.navbar a:hover {
-    color: #ffa116;
+.nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+    transition: .2s;
 }
+
+.nav-links a:hover {
+    color: #60a5fa;
+}
+
+/* ================= DASHBOARD ================= */
 
 .dashboard {
     display: grid;
+
     grid-template-columns: 2fr 1fr;
-    gap: 28px;
+
+    gap: 30px;
+
     padding: 40px;
+
+    max-width: 1500px;
+    margin: auto;
 }
+
+/* ================= PANELS ================= */
 
 .left-panel,
-.right-panel .card {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 16px;
-    padding: 32px;
+.card {
+
+    background: rgba(30,41,59,.72);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    transition: .25s ease;
 }
+
+.left-panel:hover,
+.card:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.01);
+
+    border-color: #60a5fa;
+}
+
+/* ================= LEFT PANEL ================= */
 
 .left-panel h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+    font-size: 46px;
+    margin-bottom: 12px;
 }
 
-.left-panel p,
-.card p {
-    color: #b3b3b3;
+.left-panel p {
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 24px;
 }
+
+/* ================= INPUTS ================= */
 
 input {
-    display: block;
-    background: #2a2a2a;
+
+    width: 320px;
+
+    background: #0f172a;
+
     color: white;
-    border: 1px solid #333;
-    padding: 14px;
-    margin: 14px 0;
-    border-radius: 10px;
-    width: 280px;
+
+    border: 1px solid #334155;
+
+    border-radius: 14px;
+
+    padding: 15px;
+
     font-size: 15px;
+
+    margin-bottom: 15px;
+
+    transition: .2s;
+}
+
+input:focus {
+
+    outline: none;
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 4px rgba(96,165,250,.18);
+}
+
+/* ================= BUTTONS ================= */
+
+.button-row {
+    margin-top: 10px;
 }
 
 button {
-    background: #ffa116;
-    color: #111;
+
+    background: linear-gradient(
+        135deg,
+        #c26d3d,
+        #a85c33
+    );
+
+    color: white;
+
     border: none;
-    padding: 13px 22px;
-    margin: 10px 10px 10px 0;
-    border-radius: 10px;
+
+    border-radius: 14px;
+
+    padding: 14px 24px;
+
+    margin-right: 10px;
+
     font-weight: bold;
+
     cursor: pointer;
+
+    transition: .2s;
+
+    box-shadow:
+        0 8px 0 #7c3f22,
+        0 18px 30px rgba(0,0,0,.35);
 }
 
 button:hover {
-    background: #ffb84d;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 0 #7c3f22,
+        0 24px 36px rgba(0,0,0,.4);
 }
 
-.right-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+button:active {
+
+    transform:
+        translateY(4px);
+
+    box-shadow:
+        0 4px 0 #7c3f22,
+        0 10px 20px rgba(0,0,0,.3);
 }
 
-.card span {
-    color: #22c55e;
-    font-weight: bold;
-}
+/* ================= ROOM INFO ================= */
 
 #roomMessage {
-    color: #22c55e;
-    margin-top: 24px;
+
+    margin-top: 25px;
+
+    color: #60a5fa;
+
+    font-size: 18px;
 }
 
 #roomInfo {
-    background: #262626;
+
     margin-top: 20px;
-    padding: 20px;
-    border-radius: 14px;
-    border: 1px solid #333;
+
+    background: rgba(15,23,42,.9);
+
+    border: 1px solid #334155;
+
+    border-radius: 16px;
+
+    padding: 24px;
 }
 
+/* ================= RIGHT PANEL ================= */
+
+.right-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+
+    color: #cbd5e1;
+
+    line-height: 1.6;
+}
+
+.card span {
+
+    color: #60a5fa;
+
+    font-weight: bold;
+}
+
+/* ================= CODE EDITOR ================= */
+
 textarea {
-    width: 95%;
-    height: 180px;
-    background: #121212;
+
+    width: 100%;
+
+    height: 220px;
+
+    margin-top: 16px;
+
+    background: #0f172a;
+
     color: white;
-    border: 1px solid #444;
-    border-radius: 12px;
+
+    border: 1px solid #334155;
+
+    border-radius: 14px;
+
     padding: 16px;
+
     font-size: 15px;
-    margin-top: 15px;
+
     resize: vertical;
 }
 
+textarea:focus {
+
+    outline: none;
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 4px rgba(96,165,250,.18);
+}
+
+/* ================= STATUS ================= */
+
 #solutionMessage {
-    color: #22c55e;
+
+    margin-top: 15px;
+
+    color: #60a5fa;
+
     font-weight: bold;
+}
+
+/* ================= CODING ARENA ================= */
+
+.coding-arena {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+
+    padding: 40px;
+
+    max-width: 1500px;
+    margin: auto;
+}
+
+.problem-panel,
+.editor-panel {
+
+    background: rgba(30,41,59,.72);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.problem-panel h1 {
+    margin: 15px 0;
+}
+
+.problem-panel p,
+.problem-panel li {
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+}
+
+.problem-panel ul {
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.difficulty {
+
+    color: #60a5fa;
+
+    font-weight: bold;
+
+    font-size: 18px;
+}
+
+pre {
+
+    background: #0f172a;
+
+    border: 1px solid #334155;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-top: 10px;
+
+    overflow-x: auto;
+}
+
+.editor-panel textarea {
+
+    width: 100%;
+
+    height: 550px;
+
+    margin-top: 15px;
+
+    font-family: Consolas, monospace;
 }

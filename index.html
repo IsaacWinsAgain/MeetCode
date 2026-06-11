@@ -1,61 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MeetCode</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <nav class="navbar">
+
         <h2>MeetCode</h2>
-        <div>
+
+        <div class="nav-links">
             <a href="#">Battles</a>
             <a href="#">Problems</a>
             <a href="#">Leaderboard</a>
         </div>
+
     </nav>
 
-    <main class="dashboard">
+    <main class="coding-arena">
 
-        <section class="left-panel">
-            <h1>Live Coding Battles</h1>
-            <p>Challenge another programmer, solve problems under pressure, and improve your interview skills.</p>
+        <!-- LEFT SIDE -->
+        <section class="problem-panel">
 
-            <input id="username" type="text" placeholder="Enter username">
-            <input id="roomCode" type="text" placeholder="Enter room code">
+            <span class="difficulty">Easy</span>
 
-            <div>
-                <button onclick="createRoom()">Create Room</button>
-                <button onclick="joinRoom()">Join Room</button>
-            </div>
+            <h1>Design Dynamic Array</h1>
 
-            <h3 id="roomMessage"></h3>
-            <div id="roomInfo"></div>
+            <p>
+                Design a Dynamic Array (Resizable Array) class,
+                similar to an ArrayList in Java or vector in C++.
+            </p>
+
+            <h3>Operations</h3>
+
+            <ul>
+                <li>Get an element by index</li>
+                <li>Set an element by index</li>
+                <li>PushBack</li>
+                <li>PopBack</li>
+                <li>Resize when full</li>
+                <li>Return size</li>
+                <li>Return capacity</li>
+            </ul>
+
+            <h3>Example</h3>
+
+            <pre>
+Input:
+["Array",1,"pushback",1,"getCapacity"]
+
+Output:
+[null,null,1]
+            </pre>
+
         </section>
 
-        <section class="right-panel">
-            <div class="card">
-                <h3>Current Mode</h3>
-                <p>1v1 Coding Duel</p>
-            </div>
+        <!-- RIGHT SIDE -->
+        <section class="editor-panel">
 
-            <div class="card">
-                <h3>Today’s Challenge</h3>
-                <p>Two Sum</p>
-                <span>Easy</span>
-            </div>
+            <h2>Java Starter Code</h2>
 
-            <div class="card">
-                <h3>Coming Soon</h3>
-                <p>Leaderboard, profiles, ratings, and real-time matches.</p>
-            </div>
+            <textarea id="solutionBox">
+public class DynamicArray {
+
+    public DynamicArray(int capacity) {
+
+    }
+
+    public int Get(int i) {
+
+    }
+
+    public void Set(int i, int n) {
+
+    }
+
+    public void PushBack(int n) {
+
+    }
+
+    public int PopBack() {
+
+    }
+
+    private void Resize() {
+
+    }
+
+    public int GetSize() {
+
+    }
+
+    public int GetCapacity() {
+
+    }
+}
+            </textarea>
+
+            <button onclick="submitSolution()">
+                Submit Solution
+            </button>
+
+            <p id="solutionMessage"></p>
+
         </section>
 
     </main>
 
     <script src="script.js"></script>
+
 </body>
+
 </html>
